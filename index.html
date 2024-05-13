@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shape Generator</title>
+</head>
+<body>
+    <h1>Contacts List</h1>
+    <input type="text" id="contact-input" placeholder="Enter a name">
+    <button onclick="addContact()">Add</button>
+    <button onclick="removeContact()">Remove</button>
+    <p id="contact-list"></p>
+
+    <script>
+        var contacts = [];
+
+        function addContact() {
+        var contactName = document.getElementById("contact-input").value;
+        if (contacts.length < 7) {
+            contacts.push(contactName);
+        }
+        else {
+            contacts.shift();
+            contacts.push(contactName);
+        }
+        displayContacts();
+        }
+
+        function removeContact() {
+        if (contacts.length > 0) {
+            contacts.pop();
+            displayContacts();
+        }
+        }
+
+        function displayContacts() {
+        document.getElementById("contact-list").innerText = contacts.join(" ");
+        }
+    </script>
+</body>
+</html>
